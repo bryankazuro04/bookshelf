@@ -1,0 +1,558 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Fira+Sans&family=Lora:ital@1&family=Merienda&family=Noto+Serif+Display:wght@300&family=PT+Serif:ital@1&family=Playfair+Display:ital@1&family=Slabo+27px&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: rgb(105, 105, 105);
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(105, 105, 105, 0.5);
+}
+
+button {
+  font-family: "Lora", serif;
+}
+
+
+/* Navbar */
+
+.nav-header {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 80%, transparent);
+  z-index: 9;
+}
+
+.nav-desktop {
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-brand {
+  margin-right: 100px;
+  font-family: "Lora", serif;
+  font-size: 2em;
+  color: #78d5d7;
+  text-shadow: 0 0 10px #be0aff, 0 0 20px #be0aff;
+}
+
+.nav-brand:hover {
+  color: #892ed3;
+  text-shadow: 0 0 10px #09192d, 0 0 20px #09192d;
+}
+
+#toggle-button {
+  display: none;
+}
+
+.nav-item-mobile {
+  display: none;
+  transition: 0.5s;
+}
+
+.search-box {
+  border: none;
+  border-radius: 30px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: #cecece;
+}
+
+#search-book {
+  border: none;
+  padding: 0;
+  width: 0;
+  background: none;
+  color: white;
+  font-size: 16px;
+  font-family: "Fira Sans", sans-serif;
+  float: left;
+  outline: none;
+  transition: 0.4s;
+}
+
+.tombol-cari {
+  border: none;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: brown;
+  background-color: wheat;
+  float: right;
+}
+
+.tombol-carii {
+  border: none;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: brown;
+  background-color: wheat;
+  float: right;
+}
+
+#tambah-buku {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color: #f9cb40;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#tambah-buku:hover {
+  background-color: #f8cf54;
+  box-shadow: 0 0 10px #f9cb40, 0 0 20px #f9cb40, 0 0 30px #f9cb40;
+}
+
+
+/* Navbar End */
+
+
+/* Jumbotron */
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.jumbotron video {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  background-size: cover;
+  z-index: -10;
+}
+
+.sambutan {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: yellow;
+  font-family: "Playfair Display", serif;
+  font-size: 2em;
+  text-shadow: 0 0 20px red, 0 0 40px red, 0 0 70px red, 0 0 80px red;
+  gap: 40px;
+}
+
+.scroll-down {
+  border: 1px solid white;
+  border-radius: 50px;
+  padding: 5px;
+  width: 170px;
+  height: 50px;
+  color: antiquewhite;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(14, 14, 66, 0.5);
+}
+
+.scroll-down:hover {
+  width: 200px;
+  transform: scale(1.1);
+  transition: width 0.5s;
+}
+
+.scroll-down svg {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Jumbotron End */
+
+
+/* Modal Form */
+
+.modal-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  z-index: 10;
+}
+
+.modal-container {
+  border-radius: 10px;
+  padding: 3em;
+  width: 80%;
+  background-color: #ddd;
+  font-family: "Slabo 27px", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+
+.modal-field label {
+  margin-bottom: 15px;
+}
+
+.modal-field input[type="text"],
+.modal-field input[type="number"] {
+  border: 2px solid rgb(140, 0, 255);
+  border-radius: 25px 0;
+  padding: 0.5em 0.7em;
+  font-size: 1em;
+}
+
+.modal-field input[type="text"]:focus,
+.modal-field input[type="number"]:focus {
+  color: #828382;
+}
+
+.modal-field input[type="checkbox"] {
+  cursor: pointer;
+  opacity: 0;
+}
+
+.modal-field .checkbox {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  width: 19px;
+  height: 19px;
+  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.modal-field input[type="checkbox"]:checked~.checkbox {
+  background-color: #09ff00;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.1em;
+  gap: 20px;
+}
+
+#close-button,
+#submit-book {
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #ddd;
+  font-size: 1em;
+}
+
+#close-button {
+  border: 1px solid red;
+  font-family: "Lora", serif;
+  cursor: pointer;
+}
+
+#close-button:hover {
+  background-color: rgb(241, 48, 48);
+}
+
+#submit-book {
+  border: 1px solid #09ff00;
+}
+
+#submit-book:hover {
+  background-color: #2bf024;
+  transition: 0.5s;
+}
+
+
+/* Modal Form End */
+
+
+/* Main Content */
+
+main {
+  padding-top: 5em;
+  padding-bottom: 1em;
+  background-image: url(./assets/library-wallpaper-3.jpg);
+  min-height: 100vh;
+}
+
+.book-shelf {
+  margin: 16px 4em;
+  border-radius: 10px;
+  padding: 2em;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 5px 5px 3px rgba(216, 216, 216, 0.2);
+}
+
+.book-shelf h2 {
+  border-bottom: 3px solid black;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-family: "PT Serif", serif;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.book-list {
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgba(212, 156, 0, 0.9);
+  box-shadow: 2px 2px 10px #828382;
+}
+
+.item-list {
+  margin: 10px 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 49%;
+  box-shadow: 1px 1px 3px white;
+}
+
+.item-list:hover {
+  border-radius: 1px;
+  box-shadow: 1px 1px 5px 1px black;
+  transform: scale(1.02);
+}
+
+.book-detail {
+  margin: 0.5em 1em;
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.book-detail h3 {
+  margin-bottom: 10px;
+  font-family: "EB Garamond", serif;
+}
+
+.book-detail p {
+  margin: 5px 0;
+  font-family: "Merienda", cursive;
+  font-size: 0.8em;
+}
+
+.button-action {
+  display: flex;
+  gap: 10px;
+}
+
+.item-list button {
+  margin: 0 15px;
+  border: none;
+  background: none;
+  font-size: 1em;
+}
+
+.item-list .already {
+  cursor: pointer;
+}
+
+.item-list .undo-read .fa-solid,
+.item-list .already .fa-solid,
+.item-list .delete-book .fa-solid {
+  color: #86665b;
+  background-color: transparent;
+  font-size: 2em;
+}
+
+.item-list .undo-read .fa-solid:hover {
+  color: #212152;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.item-list .already .fa-solid:hover {
+  color: #09ff00c0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.item-list .delete-book .fa-solid:hover {
+  color: rgb(255, 36, 36);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.delete-book,
+.item-list .undo-read {
+  cursor: pointer;
+}
+
+footer {
+  padding: 0.5em;
+  font-family: "Noto Serif Display", serif;
+  background-color: #9bc1bc;
+}
+
+footer h4 {
+  margin: 20px;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+footer p {
+  text-align: center;
+}
+
+.sosmed {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.sosmed a {
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.sosmed a:nth-child(1) {
+  color: #1877f2;
+}
+
+.sosmed a:nth-child(2) {
+  color: #be0aff;
+}
+
+.sosmed a:nth-child(3) {
+  color: #444c56;
+}
+
+.sosmed a:nth-child(4) {
+  color: rgb(54, 103, 194);
+}
+
+.sosmed a:hover {
+  color: yellow;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transform: scale(1.08);
+}
+
+.sosmed .fa-brands {
+  margin: 10px;
+  font-size: 2em;
+}
+
+@media screen and (max-width: 576px) {
+  .nav-desktop {
+    margin: 1em 2em;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    margin-right: 0;
+    font-size: 1.1em;
+  }
+  .search-box {
+    margin: 20px 0;
+    position: unset;
+    width: 1.3em;
+  }
+  .tombol-cari {
+    width: 2em;
+    height: 2em;
+    font-size: 0.7em;
+  }
+  .tombol-carii {
+    width: 2em;
+    height: 2em;
+    font-size: 0.7em;
+  }
+  #tambah-buku {
+    font-size: 0.8em;
+  }
+  .sambutan {
+    font-size: 1em;
+    gap: 20px;
+  }
+  .sambutan p {
+    width: 80%;
+    text-align: center;
+  }
+  .modal-container {
+    padding: 2em;
+    font-size: 0.7em;
+  }
+  .modal-field .checkbox {
+    width: 15px;
+    height: 15px;
+  }
+  .modal-field input[type="text"],
+  .modal-field input[type="number"] {
+    padding: 0.2em;
+  }
+  #close-button,
+  #submit-book {
+    padding: 10px;
+  }
+  .book-shelf {
+    margin: 16px 1em;
+    padding: 10px;
+  }
+  .book-list {
+    display: block;
+  }
+  .item-list {
+    width: 100%;
+    gap: 0;
+  }
+  .item-list button {
+    margin: 0;
+    font-size: 0.5em;
+  }
+  .button-action {
+    flex-direction: column;
+    gap: 20px;
+  }
+  footer h4 {
+    font-size: 1.1em;
+  }
+  .sosmed {
+    font-size: 0.8em;
+    flex-wrap: wrap;
+    gap: 80px;
+  }
+}
