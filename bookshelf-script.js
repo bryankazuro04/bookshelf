@@ -204,7 +204,7 @@ function checkList() {
 // Membuat list buku
 function makeBookList(bookDetail) {
   const titleText = document.createElement("h3");
-  titleText.innerText = "Title buku: " + bookDetail.title;
+  titleText.innerText = "Judul buku: " + bookDetail.title;
 
   const authorText = document.createElement("p");
   authorText.innerText = "Penulis: " + bookDetail.author;
